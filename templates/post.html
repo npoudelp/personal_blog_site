@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}aspBlog{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <img src="{{blog.thumbnail.url}}" style="height: 45vh; width: 100vw;" class="img-fluid be_round" alt="image">
+    </div>
+    <div class="container">
+        <p class="text-muted">
+            by <span class="font-weight-bold text-white mr-5">{{blog.author}}</span>
+            <span class="">
+                <i class="bi bi-calendar-week"></i> {{blog.date}}
+            </span>
+        </p>
+        <p class="h3 title">
+            {{blog.title|safe}}
+        </p>
+        <p class="text-truncate">
+            {{ blog.blog|safe }}
+        </p>
+        <a href="{% url 'blogs:post' id=blog.id %}">
+            <span class="btn-outline-light btn be_round">Read More</span>
+        </a>
+    </div>
+
+    <div class="container p-5">
+        <p class="text-center text-muted">
+            
+        </p>
+    </div>
+
+{% endblock %}
