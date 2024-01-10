@@ -17,11 +17,11 @@ class post(models.Model):
         ('publish', 'publish'),
     ]
 
-    thumbnail = models.ImageField(upload_to='thumbnails/', blank=True, null=True)
+    thumbnail = models.ImageField(blank=True, null=True)
     author = models.CharField(choices=AUTHORS, max_length=25)
     title = models.CharField(max_length=255)
     blog = mce_model.HTMLField(null=True, blank=True)
-    date = models.DateField()
+    date = models.DateField()   
     tags = models.CharField(max_length=25, default='Empty')
     description = models.TextField(null=True, blank=True)
     status = models.CharField(choices=STAT, max_length=25, default='draft')
